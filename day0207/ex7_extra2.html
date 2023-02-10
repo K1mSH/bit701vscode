@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="../image/moviestar/13.jpg" id="photo" width="300">
+    <br><br>
+    
+    <button type="button" id="smaller">점점작게</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" id="bigger">점점크게</button>
+
+<script>
+        var p1=document.getElementById("photo");
+        var bg=document.getElementById("bigger");
+        var sm=document.getElementById("smaller");
+        
+        
+    
+
+    bg.onclick=function(){
+        p1.setAttribute("width", p1.offsetwidth+10);
+    }
+
+    sm.onclick=function(){
+       p1.setAttribute("width", p1.offsetWidth-10);
+    }
+
+</script>
+
+
+
+
+</body>
+
+</html>

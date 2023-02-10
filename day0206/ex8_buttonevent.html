@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <style>
+        body * {
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+    </style>
+</head>
+
+<body>
+    <div class="posa">
+        <!--버튼 만드는 2가지 방법-->
+        <input type="button" value="alert이란?"
+        onclick="alert('버튼1을 클릭했어요!')"> <!--안쪽은 Js영역임, 그래서 따옴표는 교차로 함-->
+        <br><br>
+        <button type="button" 
+        onclick="prompt('너 이름이 뭐니?','기본값_미입력시 빈칸')">prompt란?</button>
+
+        <br><br>
+        <input type="button" value="버튼버튼">
+
+        <br><br>
+        <button type="button"
+        onclick="confirm('데이터를 저장할까요?')">confirmt란?</button>
+        <hr>
+        <button type="button" onclick="test1()">메세지</button>
+        <h3 id="result1"></h3>
+
+        <script>
+            function test1(){
+                alert("오늘도 행복한 하루!!!");
+                //event안에서는 document.write쓰면 기존 창이 다 지워지고 새로 출력됨
+                //document.write("버튼 1을 클릭했어요");
+
+                //innerHTML: HTML태그 적용 가능
+                //innerText: HTML 태그도 그대로 텍스트로 출력됨
+                document.getElementById("result1").innerHTML="<b>버튼 1 클릭</b>";
+            }
+        </script>
+
+        <button type="butotn" onclick="test2()">이름입력</button>
+        <h2 id="result2"></h2>
+
+    <script>
+        function test2(){
+            //이름을 입력받는다
+            var name=prompt("너의 이름은 뭐니?","기본입력값");
+            
+            //방법1
+            // document.getElementById("result2").innerHTML=
+            // "<b>내 이름은 "+name+"입니다</b>"
+
+            //방법2
+            document.getElementById("result2").innerHTML=
+            `<b>내이름은 <span style='color:green'>${name}</span>입니다</b>`
+            
+        }
+
+    </script>
+
+    <button type="button" onclick="test3()">컨펌</button>
+    <h2 id="result3"></h2>
+    <script>
+        function test3(){
+            var ans=confirm("데이터를 저장할까요?");
+            console.log(ans); // 크롬 브라우저->검사->콘솔에서 값 확인하려고 쓰는거
+            //True false가 나오는걸 확인할 수 있었음
+
+            if(ans==true)
+                document.getElementById("result3").innerText="데이터를 잘 저장했습니다"
+            else
+            document.getElementById("result3").innerText="저장을 취소했습니다"
+
+
+        }
+    </script>
+
+    </div>
+
+
+</body>
+
+</html>

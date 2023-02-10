@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+    rel="stylesheet">
+    <style>
+        body,body * {
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+
+        .photo{
+            width:100px;
+            height: 100px;
+            border: 1px solid gray;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    //각종 데이터를 다양한 방법으로 배열에 담아보자
+    var arrphoto=new Array();
+    arrphoto.push("../image/food/10.jpg");
+    arrphoto.push("../image/food/2.jpg");
+    arrphoto.push("../image/shop/2.jpg");
+    arrphoto.push("../image/shop/27.jpg");
+    arrphoto.push("../image/animal/C8.png");
+    
+    var arrtitle=["햄마요덮밥","샌드위치","원피스","투피스","귀염둥이인형"];
+
+    var arrprice=new Array();
+    arrprice[0]=11000;
+    arrprice[1]=9000;
+    arrprice[2]=35000;
+    arrprice[3]=42000;
+    arrprice[4]=19000;
+    </script>
+
+    <table border="1" style="border-collapse :collapse" >
+        <caption><b>[오늘 용돈 사용]</b></caption>
+        <tr>
+            <th>번호</th><th>상품명</th><th>사진</th><th>가격</th>
+        </tr>
+        <script>
+            var r=""; // +=으로 하면 초기 쓰레기 값이 있을 수도 있어서 초기화 해주는거, =이면 안해도 괜찬음
+            var sum=0; // 초기값 넣을때 type구분 해야함!!!!
+
+            for(var idx in arrphoto){
+            r+=`<tr>
+                <td>${Number(idx)+1}</td>
+                <td>${arrtitle[idx]}</td>
+                <td><img src="${arrphoto[idx]}" class="photo"></td>
+                <td>${arrprice[idx]}원</td>
+                </tr>`;
+
+            // 이거 그냥 리터럴이면 r+=``에 <tr> ... </tr>까지 전부 입력하면 되는거 였음! 리터럴 개념 확실히
+
+            sum+=Number(arrprice[idx]);
+            console.log(Number(arrprice[idx]));
+            console.log(typeof(Number(arrprice[idx])));
+            }
+            
+            console.log(typeof(sum));
+            document.write(r);
+          
+        </script>
+    </table>
+<script>
+    document.write(`총 사용 금액 : ${sum}원`);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+    rel="stylesheet">
+<style>
+     body * { 
+        font-size: 1.5rem;
+        font-family: 'Single Day';
+    }
+
+    #photo{
+        width: 300px;
+        height: 400px;
+        border: 10px inset gold;
+    }
+    figure{
+        text-align: center;
+    }
+
+    .buttons{
+        text-align: center;
+    }
+
+    .buttons button{
+        width: 100px;
+        height: 100px;
+        background-color: plum;
+        color: blue;
+        border-radius: 30px;
+        cursor: pointer;  /*올리면 손가락 모양*/
+    }
+
+    .radius30{
+        border-radius: 30px;
+    }
+    .radius60{
+        border-radius:60px
+    }
+
+</style>
+   
+<body>
+    <figure>
+        <img src="../image/moviestar/13.jpg" id="photo" title="박신혜">
+        <figcaption>
+            <b id="irum">박신혜</b>
+        </figcaption>
+    </figure>
+
+    <div class="buttons">
+        <button type="button" id="btn1">수지</button>
+        <button type="button" id="btn2">박보영</button>
+        <button type="button" id="btn3">유아인</button>
+        <button type="button" id="btn4">한예슬</button>
+    </div>
+
+<script>
+    //사진 요소값
+    var p1=document.getElementById("photo");
+    var nam1=document.getElementById("irum");
+    
+    //버튼 함수들
+    document.getElementById("btn1").onclick=function() {
+        p1.setAttribute("src","../image/moviestar/19.jpg");
+        p1.setAttribute("title","수지");
+        
+        //nam1.innerHTML="<b style='color:green'>수지</b>";
+        //출력할 이름을 prompt로 받아서 출력해보기
+
+        var myname=prompt("출력할 이름을 입력해주세요", "기본값");
+        //취소를 누르면 '이름을 입력해주세요' 라고 출력하기
+
+        if(myname==null)
+            nam1.innerText="이름을 입력해주세요";
+        else
+            nam1.innerHTML=`<b style='color:green'>${myname}</b>`;
+    }
+    
+    document.getElementById("btn2").onclick=function() {
+        p1.setAttribute("src","../image/moviestar/12.jpg");
+        p1.setAttribute("title","박보영");
+        nam1.innerText="박보영";
+
+        //사진의 class를 redline으로 변경
+
+        p1.setAttribute("class", "radius30");
+
+    }
+
+    document.getElementById("btn3").onclick=function() {
+        p1.setAttribute("src","../image/moviestar/20.jpg");
+        p1.setAttribute("title","유아인")
+        nam1.innerText="유아인";
+    }
+
+    document.getElementById("btn4").onclick=function() {
+        p1.setAttribute("src","../image/moviestar/6.jpg");
+        p1.setAttribute("title","한예슬");
+        nam1.innerText="한예슬";
+    }
+
+
+</script>
+
+</body>
+</html>

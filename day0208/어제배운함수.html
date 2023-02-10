@@ -1,0 +1,42 @@
+//특정 요소에서 속성의 값을 반환하면 그 값을 변수에 저장
+변수명= 요소값.getAttribute("속성값");
+
+//특정 요소에서 속성의 값을 변경만 할 경우
+변수명=요소값.setAttribute("속성값", 변경할 값);
+
+//특정 요소안에 HTML태그를 포함해서 출력시킬 경우
+요소값.innerHTML="html을 포함한 문자열";
+
+//특정 요소안에 단순한 텍스트만 넣을 경우
+요소값.innerText="문자열";
+(예) a.innerHTML="happy<br>nice";
+
+    a.innerHTML+="<br>하하하";
+    
+
+//isNan(Not a Number): 숫자가 아닐 경우 True반환
+예시)   isNaN("5a")=>> true반환
+        isNaN("100")=>> false반환
+
+//특정 태그에서 id를 이용해서 인스턴스를 얻으려면 
+변수명=document.getElementById("ID명")
+
+//eval("수식") : 문자열 형태의 수식을 계산해서 반환한다
+예시)   eval("4*5") >> 20
+        eval("5+6") >> 11
+
+//숫자 형태의 문자열을 계산 가능한 숫자로 변경하기
+예)     var a="5"; // string으로 입력된 상태( typeof(변수명))
+        var b="6";
+        console.log(a+b); >> 56(+는 문자열로 인식됨)
+        console.log(a-b); >> -1(+를 제외한 연산자는 자동 계산)
+
+        b=parseInt(a) : 문자열 a를 정수타입으로 반환(b는 number타입임)
+        
+        예) parseInt("7") >> 숫자 7을 반환
+            parseInt("7.5") >> 숫자 7을 반환
+            parseFloat("7.5") >> 숫자 7.5를 반환
+            Number("7") >> 숫자 7 반환
+            Number("7.5") >> 숫자 7.5 반환
+
+

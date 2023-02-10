@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <style>
+        body * {
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+
+        #resultbtn {
+
+            position: absolute;
+            left: 80px;
+            top: 200px;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        이름 &nbsp;&nbsp;&nbsp;
+        <input type="text" id="box1" width="200px">
+        <br><br>
+        자바 &nbsp;&nbsp;&nbsp;
+        <input type="text" id="box2" width="200px">
+        <br><br>
+        HTML &nbsp;
+        <input type="text" id="box3" width="120px">
+        <br><br>
+
+        <button type="button" id="resultbtn">결과확인</button>
+    </div>
+    <br><br>
+    <div>
+        <h2 id="r1"></h2>
+        <h2 id="r2"></h2>
+        <h2 id="r3"></h2>
+        <h2 id="r4"></h2>
+        <h2 id="r5"></h2>
+    </div>
+
+    <script>
+        var b1 = document.getElementById("box1");
+        var b2 = document.getElementById("box2");
+        var b3 = document.getElementById("box3");
+        var rbtn = document.getElementById("resultbtn");
+
+        rbtn.onclick = function () {
+            document.getElementById("r1").innerHTML = `이름: ${b1.value}`;
+            document.getElementById("r2").innerHTML = `자바점수: ${b2.value}`;
+            document.getElementById("r3").innerHTML = `HTML점수: ${b3.value}`;
+            document.getElementById("r4").innerHTML = `총점: ${Number(b2.value)+Number(b3.value)}`;
+            document.getElementById("r5").innerHTML = `평균: ${(Number(b2.value)+Number(b3.value))/2}`;
+        }
+
+        b2.onblur = function () {
+            if (isNaN(this.value)) {
+                alert("숫자를 입력해주세요");
+                this.value = "";
+            }
+
+            if (b2.value < 0 || b2.value > 100) {
+                alert("유효한 숫자를 입력해주세요");
+                this.value = "";
+            }
+
+        }
+
+        b3.onblur = function () {
+            if (isNaN(this.value)) {
+                alert("숫자를 입력해주세요");
+                this.value = "";
+            }
+
+            if (b3.value < 0 || b3.value > 100) {
+                alert("유효한 숫자를 입력해주세요");
+                this.value = "";
+            }
+        }
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

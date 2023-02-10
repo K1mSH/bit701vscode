@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <h3>자바스크립트 연산자</h3>
+    <h4 style="background-color: orange;">산술 연산자 연습(+,-,*,/,%)</h4>
+    <script>
+        var su1 = 7; //이렇게 직접 값을 넣은 경우는 number로 나옴, 읽어오는 값은 다를 수 있음
+        var su2 = 4;
+
+        document.write("su1의 타입은 " + typeof (su1) + "<br>")
+        document.write("su2의 타입은 " + typeof (su2) + "<br><br>")
+
+        document.write("두 수 더하기: " + (su1 + su2) + "<br>");
+        document.write("두 수 빼기: " + (su1 - su2) + "<br>");
+        document.write("두 수 곱하기: " + (su1 * su2) + "<br>");
+        document.write("두 수 나누기: " + (su1 / su2) + "<br>");
+        document.write("두 수의 나머지: " + (su1 % su2) + "<br>");
+    </script>
+    <h4 style="background-color: pink;">증강 연산자 연습(++,--)</h4>
+    <script>
+        var a = 3, b = 3, m, n;
+        a++; // a=a+1, 단항은 전,후치 동일함
+        ++b;
+        document.write("a=" + a + ", b=" + b + "<br>"); //4, 4
+
+        m = a++; // ma=;, a++; 즉 대입후 a값 증가
+        document.write(`m=${m}, a=${a}<br>`);
+
+        n = ++b; // b++, n=b, b가 먼저 증가된 후 n에 저장됨
+        document.write(`n=${n}, b=${b}<br>`); //5, 5
+    </script>
+    <h4 style="background-color: green;">대입 연산자 연습(=,=+,-+,*=,/=,%=)</h4>
+    <script>
+        var a=3;
+        a+=2;
+        document.write(a+"<br>"); //5
+        a-=3;
+        document.write(a+"<br>"); //2
+        a*=5;
+        document.write(a+"<br>"); //10
+        a/=4
+        document.write(a+"<br>"); //2.5
+        a%=2;
+        document.write(a+"<br>"); //0.5
+    </script>
+    <h4 style="background-color: lightblue;">관계, 논리연산자 연습</h4>
+    <script>
+        var kor=90;
+        var eng=80;
+        document.write((kor>eng)+"<br>"); // 조건이 맞으면 True, 아니면 False 반환
+        document.write((kor<eng)+"<br>"); // false
+        document.write((kor==eng)+"<br>"); // false
+        document.write((kor>eng && eng==100) +"<br>"); // false
+        document.write((kor>eng || eng==100) +"<br>");  // 리터럴도 가능함
+    </script>
+    <h4 style="background-color: lightgrey;">조건(삼항)연산자 연습(조건식?참:거짓)</h4>
+    <script>
+        var score=6;
+        var grade;
+        //점수가 80이상이면 합격, 아니면 불합격
+        grade=score>=80?"합격":"불합격";
+        document.write(`score=${score},  grade : ${grade}<br>`);
+        //점수가 90이상이면 "very good", 80은 "good", 나머지는 "try"
+        grade=score>=90?"very good":score>=80?"good":"try";
+        document.write(`score=${score}  , grade=${grade}<br>`);
+
+        //A,B,C,D,F로 나눠보기
+        grade=score>=90?"A":score>=80?"B":score>=70?"C":score>=60?"D":"F";
+        document.write(`학점은 ${grade}입니다`);
+    </script>
+
+</body>
+
+</html>
