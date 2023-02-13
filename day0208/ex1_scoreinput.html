@@ -31,7 +31,9 @@
         <button type="button" id="btnresult" style="margin-left: 50px;">결과확인</button>
 
         <div id="result" style="margin: 30px;">결과</div>
-            
+       
+    
+
         <script>
             //자바점수를 입력후 포커스가 벗어날 때 발생하는 이벤트
             document.getElementById("txtjava").onblur=function(){
@@ -68,13 +70,19 @@
                 }
             }
 
+          
+            
+
             //버튼 이벤트
+            
                 document.getElementById("btnresult").onclick=function(){
                     var irum=document.getElementById("txtname").value;
                     var java=Number(document.getElementById("txtjava").value);
                     var html=Number(document.getElementById("txthtml").value);
                     var total=java+html;
                     var avg=total/2;
+                    var car='<img src="../image/mycarimage/car1.png">';
+
 
                     //div 요소값 얻어두기
                      var r=document.getElementById("result");
@@ -87,15 +95,20 @@
 
                     //리터널 쓰기
 
+
+
+
                     var s=
                     `
-                    이 름 : ${irum}
-                    자바점수 : ${java}
-                    HTML점수: ${html}
-                    총 점 : ${total}
-                    평 균 : ${avg}
+                    이 름 : ${irum} <br>
+                    자바점수 : ${java}<br>
+                    HTML점수: ${html}<br>
+                    총 점 : ${total}<br>
+                    평 균 : ${avg}<br>
+                    사 진 : ${car}
                     `;
-                    r.innerText=s;
+                    r.innerHTML=s;
+                    
 
                 }
 
