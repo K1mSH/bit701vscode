@@ -12,7 +12,7 @@
        }     
       div.title{
         font-size: 30px;
-        margin: 30px 30px;
+        margin: 30px 100px; /*top left*/
       }
       div.title .num{
         color: blue;
@@ -34,10 +34,77 @@
         margin-left: 20px;
         margin-top: 20px;
         border-radius: 100px;
+        /*flex일 경우 수평방향 가운데: flex-start, center, space-between, space-around, space-evenly*/
+
+        justify-content: space-evenly; /*flex일 경우 수평방향 가운데*/
+        align-items: center;
       }
 
+      div.box div.lotto{
+        font-size: 45px;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        background-color: #ffb6c1;
+        border-radius: 100px;
+      }
 
+      #btnlotto{
+        width: 200px;
+        height: 60px;
+        margin: 30px 200px;
+        font-size: 23px;
+        cursor: pointer;
+      }
+
+      #btnlotto:hover{
+        background-color: black;
+        color: white;
+        box-shadow: 5px 5px 5px gray;
+      }
     </style>
+    <script>
+        window.onload=function(){
+            let today=new Date();
+            let year=today.getFullYear();
+            let month=today.getMonth()+1;
+            let day=today.getDate();
+
+            document.querySelector("b.day").innerHTML=
+            `${year}-${month}-${day}`;
+            //숫자 출력되는 곳의 요소값을 배열로 얻기
+            var lotto=document.querySelectorAll("div.box>div.lotto");
+            lotto[1].style.backgroundColor="#afeeee";
+            lotto[3].style.backgroundColor="#008080";
+            
+            lotto[1].style.color="#6a5acd";
+            lotto[3].style.color="#ffd700";
+
+
+            //button event
+            document.getElementById("btnlotto").onclick=function(){
+                let nums=new Array(6);
+                //1~45 사이의 난수값을 6개 구함
+                for(let i=0;i<nums.length;i++) {
+                    nums[i]=parseInt(Math.random()*45)+1; //1~45
+                
+                //중복 검사
+                for(let j=0;j<i;j++){
+                    if(nums[i]==nums[j]){
+                        i--; //break후에 i++로 이동했을때 제자리로 갈 수 있도록
+                        break; // 현재 for문에서 나감 >> i++로 감
+                    }
+                }
+                
+                //div.lotto에 위에서 구한 nums를 넣어줌
+                for(let idx in lotto){
+                lotto[idx].innerText=nums[idx];
+                }
+            }
+        }
+    }
+    </script>
 
 </head>
 <body>
@@ -46,11 +113,11 @@
 
     <div class="box">
         <div class="lotto">1</div>
-        <div class="lotto">2</div>
-        <div class="lotto">3</div>
-        <div class="lotto">4</div>
-        <div class="lotto">5</div>
-        <div class="lotto">6</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
+        <div class="lotto">1</div>
     </div>
 
     <button type="button" id="btnlotto">로또 숫자 구하기</button>
