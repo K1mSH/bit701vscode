@@ -59,8 +59,25 @@
 
     $.each(array2,function(idx,item){
         $("div.two").append(`<img src=${item} class=photo>`);
-    })
+    });
     //item은 그냥 아무 변수명 가능
+</script>
+<hr>
+<div class="three"></div>
+<script>
+    let array3=[
+        {"message":"Hello","color":"red"},
+        {"message":"안녕하세요","color":"green"},
+        {"message":"반가워요","color":"pink"}
+    ];  // key : value // 배열에 json형태 데이터
+        // {}가 각각 객체
+
+    $.each(array3,function(idx,item){
+        $("div.three").append("<h3 style='color:"+item.color+"'>"+item.message+"</h3>");
+    });
+
+</script>
+
 </script>
 </body>
 </html>
