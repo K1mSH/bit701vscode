@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+        label {
+            margin-left: 20px;
+        }
+        .messagebox{
+            float: left;
+            font-size: 20px
+        }
+        #result{
+            margin-left:20px;
+            border: 1px solid gray;
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+
+</head>
+<body>
+<h2 style="margin-left: 20px; margin-bottom: 20px; margin-top: 20px;" >글꼴 모양</h2>
+<label>
+    <input type="checkbox" class="chkbox1 form-check-input" value="bold">굵게
+</label>
+<label>
+    <input type="checkbox" class="chkbox2 form-check-input" value="italic">이태릭
+</label>
+<label>
+    <input type="checkbox" class="chkbox3 form-check-input" value="underline">밑줄
+</label>
+<br><br>
+
+<label>
+    <input type="radio" name="ffamily" class="font form-check-input" value="Jua">Jua
+</label>
+<label>
+    <input type="radio" name="ffamily" class="font form-check-input" value="Gamja Flower">Gamja Flower
+</label>
+<label>
+    <input type="radio" name="ffamily" class="font form-check-input" value="Nanum Pen Script">Nanum Pen Script
+</label>
+<label>
+    <input type="radio" name="ffamily" class="font form-check-input" value="Single Day" checked>Single Day
+</label>
+<br><br>
+
+<label>
+    <input type="radio" name="fsize" class="fontSize form-check-input" value="20px">20px
+</label>
+<label>
+    <input type="radio" name="fsize" class="fontSize form-check-input" value="30px">30px
+</label>
+<label>
+    <input type="radio" name="fsize" class="fontSize form-check-input" value="35px">35px
+</label>
+<label>
+    <input type="radio" name="fsize" class="fontSize form-check-input" value="40px">40px
+</label>
+<br><br>
+<div class="messagebox">
+    &nbsp;&nbsp;&nbsp; 메세지 &nbsp;&nbsp;
+    <input type="text" id="textbox">
+    
+</div>
+<br><br>
+<div id="result"></div>
+<script>
+    
+
+    $(".chkbox1").click(function(){
+        
+        if($(this).prop("checked")) {
+            
+            $("#result").css("font-weight", "bold"); }
+        else
+        $("#result").css("font-weight", "normal");
+    });
+
+    $(".chkbox2").click(function(){
+        
+        if($(this).prop("checked")) {
+            
+            $("#result").css("font-style", "italic"); }
+        else
+        $("#result").css("font-style", "normal");
+    });
+
+    $(".chkbox3").click(function(){
+        
+        if($(this).prop("checked")) {
+            
+            $("#result").css("text-decoration", "underline"); }
+        else
+        $("#result").css("text-decoration", "none");
+    });
+    
+    //글꼴
+
+
+     $(".font").click(function(){
+        let fontF=$("input[name='ffamily']:checked").val();
+        $("#result").css("font-family", fontF); 
+    });
+        
+    //사이즈
+
+    $(".fontSize").click(function(){
+        let fontS=$("input[name='fsize']:checked").val();
+        $("#result").css("font-size", fontS); 
+    });
+
+
+ 
+    
+    //font-size, name: fsize, class: fontSize
+    //메세지 박스 : 클래스 textbox
+    //result: 클래스 result
+
+
+
+
+    //메세지 박스
+    $("#textbox").keypress(function(e){
+        
+        if(e.which == 13){
+            let message=$(this).val();
+            $("#result").html(message);
+        }
+    });
+
+
+</script> 
+
+</body>
+</html>
