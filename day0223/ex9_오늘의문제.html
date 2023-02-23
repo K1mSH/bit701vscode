@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <style>
+        body,
+        body * {
+            font-family: 'Single Day';
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* #btn2{
+            position: absolute;
+            left: -220px;
+        }
+        #btn3{
+            position: absolute;
+            left: -120px; */
+        /* } */
+        #btn2 {
+            position: absolute;
+            left: 200px;
+            top: 150px;
+        }
+
+        #btn3 {
+            position: absolute;
+            left: 300px;
+            top: 150px;
+        }
+
+        .resultbox1 {
+            position: absolute;
+            left: 0px;
+            top: 400px;
+            border: 3px groove gold;
+            width: 800px;
+            height: 120px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .list{
+            position: absolute;
+            left: 500px;
+            top: 130px;
+            cursor: pointer;
+        }
+         /* .list1 {
+            position: absolute;
+            left: 500px;
+            top: 130px;
+            cursor: pointer; 
+        }  */
+        /* .list2 {
+            position: absolute;
+            left: 500px;
+            top: 130px;
+            cursor: pointer;
+        } */
+    </style>
+
+</head>
+
+<body>
+    <!--출력 2개 버튼 3개, 전역변수-->
+    <button type="button" class="btn btn-success" id="btn1">영화 예매</button>
+
+    <div class="list"></div>
+    <div id="resultbox" class="">
+        <div class="resultTh"></div>
+        <div class="resultMo"></div>
+    </div>
+
+    <script>
+        $("#btn1").click(function () {
+            
+            let r=`
+            <button type="button" class="btn btn-danger" id="btn2">극장 선택</button>
+            <button type="button" class="btn btn-danger" id="btn3">영화 선택</button>
+            `;
+
+            $("body").append(r);
+         
+    
+            $(document).on("click", "#btn2", function () {
+                
+                $(".list").html(`<div class="list1" style="position:relative">CGV 강남점</div><div class="list1" style="position:relative">MEGABOX 강남점</div><div class="list1" style="position:relative">교보타워점</div>`);
+
+                //     s= `
+            //      <div class="list1" style="position:relative">CGV 강남점</div>
+            //     <div class="list1" style="position:relative">MEGABOX 강남점</div>
+            //     <div class="list1" style="position:relative">교보타워점</div>
+            // `;
+            //     $("body").append(s);
+
+
+            });
+            $(document).on("click", "#btn3", function () {
+                $(".list").html(`<div class="list2" style="position:relative">바람과 같이 사라지다</div><div class="list2" style="position:relative">엑시트</div><div class="list2" style="position:relative">괴물</div>`);
+                
+                // let s = `
+                //         <div class="list2" style="position:relative">바람과 같이 사라지다</div>
+                //         <div class="list2" style="position:relative">엑시트</div>
+                //         <div class="list2" style="position:relative">괴물</div>
+                //     `;
+                // $("body").append(s);
+            });
+
+            $(document).on("click", ".list1", function(){
+                
+                $("#resultbox").addClass("resultbox1");
+                
+                let th=$(this).text();
+                $(".resultTh").text(`극장명: ${th}`);
+           
+            });
+            $(document).on("click", ".list2", function(){
+                
+                $("#resultbox").addClass("resultbox1");
+                let mo=$(this).text();
+                $(".resultMo").text(`영화제목: ${mo}`);
+            })
+        });
+    </script>
+</body>
+
+</html>

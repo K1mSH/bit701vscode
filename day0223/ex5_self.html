@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,54 +7,43 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <style>
-        body,
-        body * {
+       body, body *{
             font-family: 'Single Day';
         }
 
-        body,
-        h1,
-        ul {
+        body,h1,ul{
             margin: 0;
             padding: 0;
         }
-
-        li {
-            list-style: none;
-        }
-
-        body {
+        li{list-style: none;}
+        body{
             background-color: #fff;
         }
-
-        div.wall {
+        div.wall{
             width: 800px;
             height: 600px;
             margin: 50px auto;
             background-color: #999;
             position: relative;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 10px rgba(0,0,0,0.9);
             border-radius: 5px;
             border: 5px solid #333;
-            overflow: hidden;
-            /*스크롤바 숨기기*/
+            overflow: hidden; /*스크롤바 숨기기*/
         }
 
-        h1.title {
+        h1.title{
             font-family: "Comic Sans Ms";
             position: absolute;
             right: 38px;
-            top: 70px;
+            top:70px;
             width: 130px;
         }
 
-        div.wall ul.list {
-            background-color: rgba(0, 0, 0, 0.9);
+        div.wall ul.list{
+            background-color: rgba(0,0,0,0.9);
             position: absolute;
             bottom: 0;
             left: 0;
@@ -63,8 +51,7 @@
             height: 100px;
             border-top: 1px solid #666;
         }
-
-        div.wall ul.list li {
+        div.wall ul.list li{
             float: left;
             margin-left: 10px;
             margin-top: 10px;
@@ -74,42 +61,30 @@
             border-radius: 10px;
             cursor: pointer;
         }
-
-        div.wall ul.list li img {
-            width: 100%;
+        div.wall ul.list li img{
+            width:100%;
         }
 
         /*제이쿼리용 함수*/
-        div.wall ul.list li:active {
-            border-color: lightcoral;
-
+        div.wall ul.list li:active{
+            border-color:lightcoral;
+            
         }
-        
+
     </style>
     <script>
-        $(function () {
-            $("ul.list img").click(function () {
-                
-                //현재 클릭한 이미지의 부모태그인 li에 active 추가
-                $(this).parent().addClass("active");
-                //그 이전에 추가된 acitve제거
-                $(this).parent().siblings().removeClass("active");
-            
-                //클릭한 이미지의 title 얻기
-                //얻은 title을 h1.title에 넣기
-                let walltitle = $(this).attr("title");
-                $("h1.title").text(walltitle);
+        $(function(){
+            $(".list img").click(function(){
+                let walltitle=$(this).attr("title");
+                $(".title").text(walltitle);
 
-                //클릭한 이미지의  src얻기
-                //src를 .wall에 background-image로 넣기
-                let wallphoto = $(this).attr("src")
-                $(".wall").css("background-image", `url(${wallphoto})`);
+                let wallphoto=$(this).attr("src");
+                $(".wall").css("background-image", wallphoto);
 
             });
         });
     </script>
 </head>
-
 <body>
     <div class="wall">
         <h1 class="title">Select Page</h1>
@@ -135,6 +110,6 @@
             </li>
         </ul>
     </div>
+    
 </body>
-
 </html>
