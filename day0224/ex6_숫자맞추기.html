@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+ <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+        
+        #inputbox{
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            width: 400px;
+        }
+
+        #rstbox{
+            position: absolute;
+            border:3px groove gold;
+            width: 400px;
+            height: 70px;
+            top:160px;
+            left: 80px;
+            text-align: center;
+            line-height: 70px;
+        }
+        
+        #numimg1{
+            position: absolute;
+            left: 600px;
+            top:80px;
+        }
+        #numimg2{
+            position: absolute;
+            left: 650px;
+            top:80px;
+        }
+
+        #btnreset{
+            position: absolute;
+            left: 410px;
+            top:300px;
+        }
+  </style>
+</head>
+<body>
+    <div style="margin-left: 180px;margin-top: 20px;"><h1>숫자 맞추기</h1></div>
+    <input type="text" id="inputbox" placeholder="1~100인 숫자를 입력해주세요" autofocus maxlength="3">
+    <div id="rstbox"></div>
+
+    <!-- <img id=numimg1 src="">
+    <img id=numimg2 src=""> -->
+
+    <div id="numimg1"></div>
+    <div id="numimg2"></div>
+
+    <button type="button" id="btnreset">다시시작</button>
+    
+<script>
+    let num;
+    function init(){
+        num=parseInt(Math.random()*100)+1; 
+        $("#rstbox").html("");
+        $("#numimg1").html("");
+        $("#numimg2").html("");
+        
+        $("#inputbox").val("");
+        $("#inputbox").focus;
+    }
+
+    init();
+
+    $("#inputbox").keyup(function(e){
+        if(e.keyCode==13){
+            
+            
+            console.log(num);
+
+            inputnum=$(this).val();
+            
+            if(isNaN(inputnum)){
+                alert("숫자만 입력해주세요");
+                $(this).val("");
+                return;
+            }
+
+            num1=parseInt(inputnum/10);
+            num2=inputnum%10;
+
+            img1=`"../image/num/${num1}.gif"`;
+            img2=`"../image/num/${num2}.gif"`;
+
+            console.log(img1,img2);
+
+            $("#numimg1").html(`
+                <img src=${img1}>
+            `);
+            $("#numimg2").html(`
+                <img src=${img2}>
+            `); 
+
+            if(num<inputnum){
+                $("#rstbox").html(`
+                    ${inputnum} 보다 작습니다
+                `);
+                }
+                else if(num>inputnum){
+                    $("#rstbox").html(`
+                    ${inputnum} 보다 큽니다
+                `);
+                }
+                else{
+                    $("#rstbox").html(`
+                    정답입니다!
+                               `);
+                $("#numimg1").html(`
+                    <img src="../image/animal/C1.png">
+                `);
+                $("#numimg2").html(`
+                    <img src="">
+                `);
+                }
+        } 
+    });
+
+    $("#btnreset").click(function(){
+            init();
+        });
+</script>
+</body>
+</html>
